@@ -1,0 +1,22 @@
+1) Как примапить запрос по цифре параллельно с запросом по типу
+    Один контроллер на всё
+2) Как избегать session-per-task
+    Spring Data JPA
+3) Делать ли отдельные контроллеры?
+    Да
+4) Как сделать динамические страницы (Ajax?)
+    Javascript Ajax JSON.parse
+    Ili AngularJS
+
+
+    страницы html
+    spring dispatcherservlet
+
+User
+    Req
+        -
+        -
+    Off
+        -
+        -
+        -

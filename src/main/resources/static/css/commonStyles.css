@@ -1,0 +1,19 @@
+.footer{
+    text-align: center;
+
+}
+.header{
+}
+.container p{
+    font-size: 20px;
+    color: #000000;
+}
+#grid{
+    width: 100%;
+}
+.grid-element{
+    display: inline-block;
+    width:30%;
+    margin:1.25%;
+    background-color: rgba(124, 90, 110, 0.19);
+}

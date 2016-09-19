@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/commonStyles.css" th:href="@{css/commonStyles.css}" />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#previous').click(function(){
+                var url = '/main/prevpage';
+                $('#grid').load(url);
+
+            });
+            $('#next').click(function(){
+                var url = '/main/nextpage'
+                $('#grid').load(url);
+            });
+        });
+    </script>
+</head>
+<body>
+<div th:replace="header :: header"></div>
+        <div class="jumbotron">
+            <div class="container">
+
+                <p>Основная страница сервиса, на которой показаны все задания, имеющиеся в базе </p>
+                <div id="grid" th:fragment="tasksFragment" >
+                    <div class="col-3 grid-element" th:each="task : ${tasksList}">
+                        <table class="table">
+                            <tr>
+                                <td th:text="${task.name}">1</td>
+                                <td th:text="${'Категория:' + task.category}">Title ...</td>
+                            </tr>
+                            <tr >
+                                <td colspan="2" style="height: 40%; background-color:rgba(200, 161, 186, 0.19)" th:utext="${'Описание:'+ '&lt;br /&gt;' + task.description}">Title ...</td>
+                            </tr>
+
+                            <tr>
+                                    <div th:switch="${task.isRequest}">
+                                        <td style="width: 45%" th:case="true" >Тип: Поиск</td>
+                                        <td style="width: 45%" th:case="false">Тип: Предложение</td>
+                                    </div>
+                                <td style="text-align: center">
+                                    <button style="width: 50%" type="button" class="btn-primary">Связаться</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div style="text-align: center">
+
+                    <button type="button" id ="previous" name="previous"  class="btn btn-default">Туда</button>
+                    <button type="button" id="next" class="btn btn-default">Сюда</button>
+                </div>
+            </div>
+        </div>
+<div th:replace="footer :: footer"></div>
+</body>
+</html>
