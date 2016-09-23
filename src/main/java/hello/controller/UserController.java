@@ -53,12 +53,12 @@ public class UserController {
         userService.delete(id);
         return new ResponseEntity(HttpStatus.OK);
     }
-    @RequestMapping( value = "/api/users/{id}", method = RequestMethod.GET)
+    /*@RequestMapping( value = "/api/users/{id}", method = RequestMethod.GET)
     public ResponseEntity<User> getUser(@PathVariable("id") int id){
         if (userService.findOne(id)==null){
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         }
 
         return new ResponseEntity(userService.findOne(id),HttpStatus.OK);
-    }
+    }*/
 }

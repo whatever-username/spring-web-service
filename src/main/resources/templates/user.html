@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/commonStyles.css" th:href="@{css/commonStyles.css}" />
+    <link rel="stylesheet" type="text/css" media="all" href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+<body>
+<div th:replace="header :: header"></div>
+<div class="jumbotron">
+    <div class="container">
+
+        <p>Личный кабинет пользователя</p>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <p th:utext="${userData.firstName+' '+userData.lastName}"></p>
+                    <p th:utext="${'Номер телефона:'+userData.phoneNumber}"></p>
+                    <p th:utext="${'ВКонтакте: '+userData.vkAddress} "></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1>Поиск</h1>
+                    <table>
+                        <tr>
+                            <td>
+                                <p th:utext="${userData.tasks.get(0).id}"></p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h1>Предложение</h1>
+                    <table>
+
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+<div th:replace="footer :: footer"></div>
+</body>
+</html>

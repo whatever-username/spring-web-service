@@ -58,8 +58,14 @@ public class TaskService{
     }
     public Page<Task> findPrevPage(){
         Page<Task> prevPage;
-        prevPage = taskRepository.findAll(pageable.previousOrFirst());
-        pageable = new PageRequest(prevPage.getNumber(),tasksPerPage);
+        int cur = pageable.getPageNumber();
+        if (cur==0){
+            pageable= new PageRequest(totalPages-1,tasksPerPage);
+            prevPage=taskRepository.findAll(pageable);
+        }else{
+            prevPage=taskRepository.findAll(pageable.previousOrFirst());
+            pageable = new PageRequest(prevPage.getNumber(),tasksPerPage);
+        }
         return prevPage;
 
     }
