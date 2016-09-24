@@ -1,6 +1,5 @@
 .footer{
     text-align: center;
-
 }
 .header{
 }
@@ -16,4 +15,8 @@
     width:30%;
     margin:1.25%;
     background-color: rgba(124, 90, 110, 0.19);
+}
+.jumbotron{
+    width:90%;
+    margin:auto;
 }

@@ -1,0 +1,4 @@
+.tasks-table tr td{
+    vertical-align:middle;
+    background-color: rgba(200, 91, 151, 0.19);
+}
