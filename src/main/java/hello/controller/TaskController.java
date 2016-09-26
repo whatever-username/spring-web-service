@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.*;
 
 /**
@@ -18,15 +19,19 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
+
+    @RequestMapping(value="/api/filltasks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> fillInTasks(@PathParam("amount") int amount){
+        taskService.fillInTasks(amount);
+        return new ResponseEntity<String>("filled", HttpStatus.OK);
+    }
+
     //    ResponseEntity is meant to represent the entire HTTP response.
     @RequestMapping(value="/api/tasks", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<Task>> getTasks(){
         Collection<Task> tasks = taskService.findAll();
         return new ResponseEntity<Collection<Task>>(tasks, HttpStatus.OK);
     }
-
-
-
     @RequestMapping(value = "/api/tasks", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 //    The @RequestBody method parameter annotation indicates that a method parameter should be bound to the value of the HTTP request body
     public ResponseEntity<Task> createTask(@RequestBody Task task){

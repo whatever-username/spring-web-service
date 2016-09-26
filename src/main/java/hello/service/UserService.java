@@ -6,6 +6,7 @@ import hello.repository.TaskRepository;
 import hello.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import util.DataManager;
 
 import java.util.Collection;
 
@@ -20,7 +21,12 @@ public class UserService{
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
+    public void fillIn(int amount){
+        DataManager manager = new DataManager();
+        for (int i = 0; i < amount; i++) {
+            create(manager.randomUser());
+        }
+    }
     public User findOne(Integer id){
 
         return userRepository.findOne(id);

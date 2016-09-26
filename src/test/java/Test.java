@@ -1,3 +1,7 @@
+import hello.model.persistence.User;
+import org.springframework.stereotype.Controller;
+import util.DataManager;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -6,7 +10,6 @@ import java.util.Collection;
  */
 public class Test {
     public static void main(String[] args) {
-        Collection<Integer> list = new ArrayList<>();
 
     }
 }
