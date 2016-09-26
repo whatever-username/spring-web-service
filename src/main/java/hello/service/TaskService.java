@@ -1,6 +1,7 @@
 package hello.service;
 
 import hello.model.persistence.Task;
+import hello.model.persistence.User;
 import hello.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.logging.LogFile;
@@ -8,7 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import util.DataManager;
 
+import javax.xml.crypto.Data;
 import java.io.Console;
 import java.util.Collection;
 
@@ -19,13 +22,28 @@ import java.util.Collection;
 public class TaskService{
     @Autowired
     private TaskRepository taskRepository;
+    @Autowired
+    private UserService userService;
     private Pageable pageable;
     private int totalPages;
     private int tasksPerPage=6;
     public void setTaskRepository(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
-
+    public void fillInTasks(int amount){
+        DataManager manager = new DataManager();
+        for (int i = 0; i < amount; i++) {
+            Task task = manager.randomTask();
+            User user=null;
+            while (user==null){
+                int userID=(int)(Math.random()*100);
+                user=userService.findOne(userID);
+            }
+            task.setOwnerId(user.getId());
+            System.out.println(task.toString());
+            taskRepository.save(task);
+        }
+    }
     public Task findOne(Integer id){
 
         return taskRepository.findOne(id);

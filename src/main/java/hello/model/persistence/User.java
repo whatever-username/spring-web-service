@@ -17,6 +17,9 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.vkAddress = vkAdress;
     }
+    public String toString(){
+        return ("name:"+firstName+" "+lastName+ ", phone number: "+phoneNumber+", vk: "+vkAddress);
+    }
     public int getId() {
         return id;
     }

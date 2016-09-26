@@ -12,6 +12,7 @@ import org.thymeleaf.messageresolver.MessageResolution;
 import org.thymeleaf.messageresolver.StandardMessageResolver;
 import org.thymeleaf.spring4.messageresolver.SpringMessageResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+import util.DataManager;
 
 /**
  * Created by техносила on 15.08.2016.
@@ -20,6 +21,7 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(Main.class);
+
     }
 
 }

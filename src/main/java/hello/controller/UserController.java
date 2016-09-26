@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import util.DataManager;
 
+import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -19,6 +21,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @RequestMapping(value="/api/fillusers", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> fillUsers(@PathParam("amount") int amount){
+        userService.fillIn(amount);
+        return new ResponseEntity<String>("filled", HttpStatus.OK);
+    }
     //    ResponseEntity is meant to represent the entire HTTP response.
     @RequestMapping(value="/api/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Collection<User>> getUsers(){

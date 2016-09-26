@@ -30,20 +30,25 @@
                     <div class="col-3 grid-element" th:each="task : ${tasksList}">
                         <table class="table">
                             <tr>
-                                <td th:text="${task.name}">1</td>
-                                <td th:text="${'Категория:' + task.category}">Title ...</td>
+                                <td>
+                                    <p th:text="${task.name}">1</p>
+                                </td>
+
                             </tr>
                             <tr >
                                 <td colspan="2" style="height: 40%; background-color:rgba(200, 161, 186, 0.19)" th:utext="${'Описание:'+ '&lt;br /&gt;' + task.description}">Title ...</td>
                             </tr>
 
                             <tr>
-                                    <div th:switch="${task.isRequest}">
-                                        <td style="width: 45%" th:case="true" >Тип: Поиск</td>
-                                        <td style="width: 45%" th:case="false">Тип: Предложение</td>
-                                    </div>
-                                <td style="text-align: center">
-                                    <button style="width: 50%" type="button" class="btn btn-primary">Связаться</button>
+                                        <td style="width: 55%;" th:switch="${task.isRequest}">
+                                            <p th:case="true">Тип: Поиск</p>
+                                            <p th:case="false">Тип: Предложение</p>
+                                            <p th:text="${'Категория:' + task.category}">Title ...</p>
+                                        </td>
+
+
+                                 <td style="text-align: center; width: 45%">
+                                    <button style="width: 70%" type="button" class="btn btn-primary">Связаться</button>
                                 </td>
                             </tr>
                         </table>
