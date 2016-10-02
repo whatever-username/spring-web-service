@@ -2,3 +2,18 @@
     vertical-align:middle;
     background-color: rgba(200, 91, 151, 0.19);
 }
+.info a{
+    font-size: 18px;
+    line-height: 0.6;
+    vertical-align: middle;
+    height: 100%;
+    color: grey;
+}
+.info a:hover{
+    font-size: 18px;
+    line-height: 0.6;
+    vertical-align: middle;
+    height: 100%;
+    color: black;
+    text-decoration: none;
+}

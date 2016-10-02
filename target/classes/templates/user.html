@@ -15,12 +15,12 @@
     <div class="container">
 
         <p>Личный кабинет пользователя</p>
-        <table class="table table-bordered">
+        <table class="table table-bordered ">
             <tr>
-                <td>
+                <td class="info" >
                     <p th:utext="${userData.firstName+' '+userData.lastName}"></p>
                     <p th:utext="${'Номер телефона:'+userData.phoneNumber}"></p>
-                    <p th:utext="${'ВКонтакте: '+userData.vkAddress} "></p>
+                    <a th:href="${'http://'+userData.vkAddress}" th:utext="${'ВКонтакте: '+userData.vkAddress} "></a>
                 </td>
             </tr>
             <tr>

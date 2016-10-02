@@ -1,6 +1,7 @@
 package hello.controller;
 
 import hello.model.persistence.Task;
+import hello.model.persistence.User;
 import hello.repository.TaskRepository;
 import hello.service.TaskService;
 import hello.service.UserService;
@@ -35,8 +36,15 @@ public class WebController {
     }
     @RequestMapping(value="/users/{id}", method = RequestMethod.GET)
     public String getUser(@PathVariable int id, Model model){
-        model.addAttribute("userData", userService.findOne(id));
-        return "user";
+        User user = userService.findOne(id);
+        if (user != null){
+            model.addAttribute("userData", user);
+            return "user";
+        }
+        else{
+            model.addAttribute("error", "noSuchUser");
+            return "error";
+        }
     }
     @RequestMapping("main/nextpage")
     public String getNextPage(Model model){
@@ -48,4 +56,10 @@ public class WebController {
         model.addAttribute("tasksList",taskService.findPrevPage());
         return "tasks :: tasksFragment";
     }
+    @RequestMapping("/auth")
+    public String auth(Model model){
+        return "auth";
+    }
+
+
 }

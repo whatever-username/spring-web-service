@@ -7,13 +7,19 @@
 
 <div th:fragment="header">
     <div class="header">
-    <nav style="background-color:#cddaff" class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <img style="width:50px;height:50px" src="https://cdn3.iconfinder.com/data/icons/musthave/256/Previous.png"/>
-                ы
-            </div>
-        </div>
+    <nav style="background-color:#cddaff" class="navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav text-center">
+            <a class="navbar-brand" style="border-right:1px solid #e3e3e3 ; background-color:#eeeeee">Name</a>
+            <li class="nav-item">
+                <a class="nav-link" href="">Личный кабинет</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="${'http://localhost:8080/tasks'}">Задания</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">Поиск</a>
+            </li>
+        </ul>
     </nav>
     </div>
 </div>

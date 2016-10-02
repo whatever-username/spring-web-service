@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+</head>
+<body>
+<div th:switch="${error}">
+    <p th:case="'noSuchUser'">User was not found</p>
+    <p th:case="'*'">An error occured</p>
+</div>
+</body>
+</html>
